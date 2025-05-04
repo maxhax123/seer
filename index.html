@@ -112,6 +112,15 @@
     }
 
     draw();
+    window.addEventListener('orientationchange', () => {
+  // Briefly pause and resume video drawing to reinitialize
+  setTimeout(() => {
+    canvasLeft.width = video.videoWidth;
+    canvasLeft.height = video.videoHeight;
+    canvasRight.width = video.videoWidth;
+    canvasRight.height = video.videoHeight;
+  }, 500); // Give Safari time to adjust orientation
+});
   </script>
 </body>
 </html>
